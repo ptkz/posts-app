@@ -1,0 +1,26 @@
+<section *ngIf="post" class="post">
+
+  <app-post [post]="post"></app-post>
+
+</section>
+
+<section *ngIf="comments" class="comments">
+  <h4>Comments:</h4>
+
+  <div *ngIf="comments.length">
+
+  </div>
+
+  <ng-container *ngIf="comments.length; else elseTemplate">
+    <div class="comment" *ngFor="let comment of comments">
+      <app-comment [comment]="comment"></app-comment>
+    </div>
+  </ng-container>
+
+  <ng-template #elseTemplate>
+    <div>
+      No one commented on this post yet...
+    </div>
+  </ng-template>
+
+</section>

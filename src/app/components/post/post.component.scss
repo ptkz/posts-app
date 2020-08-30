@@ -1,0 +1,25 @@
+.post {
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  background-color: #F4F6F3;
+
+  &.hover-on {
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 3px 3px 8px #aaaaaa;
+    }
+  }
+
+  &__header {
+    padding: 1rem;
+    background-color: #354F52;
+    color: #F4F6F3;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+
+  &__body {
+    padding: 1rem;
+  }
+}
