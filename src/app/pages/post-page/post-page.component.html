@@ -1,15 +1,14 @@
-<section *ngIf="post" class="post pt-2">
+<section class="post pt-2">
 
-  <app-post [post]="post"></app-post>
+    <h4 *ngIf="postNotFound">The requested post is no longer available!</h4>
+
+  <app-post *ngIf="post" [post]="post"></app-post>
+
 
 </section>
 
-<section *ngIf="comments" class="comments">
+<section *ngIf="comments && !postNotFound" class="comments">
   <h4>Comments:</h4>
-
-  <div *ngIf="comments.length">
-
-  </div>
 
   <ng-container *ngIf="comments.length; else elseTemplate">
     <div class="comment" *ngFor="let comment of comments">

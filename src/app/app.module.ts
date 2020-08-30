@@ -11,7 +11,6 @@ import { PostComponent } from './components/post/post.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { PostPageComponent } from './pages/post-page/post-page.component';
 import { NewPostPageComponent } from './pages/new-post-page/new-post-page.component';
-import { DismissAlertComponent } from './components/dismiss-alert/dismiss-alert.component';
 import { StoreModule } from '@ngrx/store';
 import { postReducer } from './reducers/post.reducer';
 
@@ -23,8 +22,7 @@ import { postReducer } from './reducers/post.reducer';
     PostComponent,
     CommentComponent,
     PostPageComponent,
-    NewPostPageComponent,
-    DismissAlertComponent
+    NewPostPageComponent
   ],
   imports: [
     BrowserModule,

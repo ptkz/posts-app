@@ -3,7 +3,6 @@
   <header><h2>Write a new post</h2></header>
 
   <main>
-
     <form class="form-group new-post__form" [formGroup]="postForm" (ngSubmit)="onSubmit()">
       <input formControlName="title" type="text" name="title" id="title" class="form-control new-post__title" placeholder="Title">
       <textarea formControlName="body" name="body" id="body" class="form-control new-post__body" placeholder="Post text"></textarea>

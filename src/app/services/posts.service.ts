@@ -5,7 +5,6 @@ import { Post } from '../constants/post';
 
 const POST_API_ROOT = 'https://jsonplaceholder.typicode.com';
 
-
 @Injectable({
   providedIn: 'root'
 })
