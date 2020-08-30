@@ -13,16 +13,20 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  getPosts(): Observable<[Post]> {
-    return this.http.get<[Post]>(`${POST_API_ROOT}/posts`);
+  getPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(`${POST_API_ROOT}/posts`);
   }
 
   getPostById(id: number): Observable<Post> {
     return this.http.get<Post>(`${POST_API_ROOT}/posts/${id}`);
   }
 
-  getComments(postId: number): Observable<[Comment]> {
-    return this.http.get<[Comment]>(`${POST_API_ROOT}/posts/${postId}/comments`);
+  getComments(postId: number): Observable<Comment[]> {
+    return this.http.get<Comment[]>(`${POST_API_ROOT}/posts/${postId}/comments`);
+  }
+
+  postPost(post: Post): Observable<Post> {
+    return this.http.post<Post>(`${POST_API_ROOT}/posts`, post);
   }
 
 

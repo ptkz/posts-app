@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { PostsService } from 'src/app/services/posts.service';
 import { Post } from 'src/app/constants/post';
 import { Router } from '@angular/router';
+import * as PostActions from '../../actions/post.actions';
+
+
+import { AppState } from '../../app.state';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-posts-page',
@@ -10,16 +15,26 @@ import { Router } from '@angular/router';
 })
 export class PostsPageComponent implements OnInit {
 
-  constructor(private postsService: PostsService, private router: Router) { }
+  posts: Post[];
 
-  posts: [Post];
+  constructor(
+    private postsService: PostsService,
+    private router: Router,
+    private store: Store<AppState>
+    ) {
+      this.store.select('posts').subscribe((posts: Post[]) => {
+        this.posts = posts;
+      });
+    }
+
 
   ngOnInit() {
-
-    this.postsService.getPosts().subscribe((response: [Post]) => {
-      this.posts = response;
+    /**
+     * Read Posts from API and load them into the Store
+     */
+    this.postsService.getPosts().subscribe((response: Post[]) => {
+      this.store.dispatch(new PostActions.LoadPosts(response));
     });
-
   }
 
   postClickHandler(post: Post) {
